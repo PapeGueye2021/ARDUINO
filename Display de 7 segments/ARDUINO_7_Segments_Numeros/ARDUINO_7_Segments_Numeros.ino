@@ -1,130 +1,83 @@
-/*********************************************************************************
-**                                                                               **
-**                              Array de 8 LEDs                                  **
-**                                                                               **
-**                                                                               **
+/**********************************************************************************
+**                                 Fade LEDs                                     **
 **********************************************************************************/
-
 //********** Includes *************************************************************
-
 //********** Variables ************************************************************
-const int led0 = 5;          // donar nom al pin 5 de l’Arduino
-const int led1 = 6;          // donar nom al pin 6 de l’Arduino
-const int led2 = 7;          // donar nom al pin 7 de l’Arduino
-const int led3 = 8;          // donar nom al pin 8 de l’Arduino
-const int led4 = 9;          // donar nom al pin 9 de l’Arduino
-const int led5 = 10;         // donar nom al pin 10 de l’Arduino
-const int led6 = 11;         // donar nom al pin 11 de l’Arduino
-
-long int t =2000;
+const byte led0 = 3;          // donar nom al pin 3 de l’Arduino
+const byte led1 = 5;          // donar nom al pin 5 de l’Arduino
+const byte led2 = 6;          // donar nom al pin 6 de l’Arduino
+const byte led3 = 9;          // donar nom al pin 9 de l’Arduino
+const byte led4 = 10;         // donar nom al pin 10 de l’Arduino
+const byte led5 = 11;         // donar nom al pin 11 de l’Arduino
+unsigned long velocitat = 500;         // velocitat de l'acció en ms
 
 //********** Setup ****************************************************************
 void setup()
-
 {
-  pinMode(led0, OUTPUT);     // definir el pin 5 com una sortida
-  pinMode(led1, OUTPUT);     // definir el pin 6 com una sortida
-  pinMode(led2, OUTPUT);     // definir el pin 7 com una sortida
-  pinMode(led3, OUTPUT);     // definir el pin 8 com una sortida
-  pinMode(led4, OUTPUT);     // definir el pin 9 com una sortida
-  pinMode(led5, OUTPUT);     // definir el pin 10 com una sortida
-  pinMode(led6, OUTPUT);     // definir el pin 11 com una sortida
- 
+  pinMode(led0, OUTPUT);     // definir el pin 3 com una sortida
+  pinMode(led1, OUTPUT);     // definir el pin 5 com una sortida
+  pinMode(led2, OUTPUT);     // definir el pin 6 com una sortida
+  pinMode(led3, OUTPUT);     // definir el pin 9 com una sortida
+  pinMode(led4, OUTPUT);     // definir el pin 10 com una sortida
+  pinMode(led5, OUTPUT);     // definir el pin 11 com una sortida
 }
 
 //********** Loop *****************************************************************
 void loop()
 {
-  digitalWrite(led0, HIGH);    // posar a 5V el pin 5
-  digitalWrite(led1, HIGH);    // posar a 5V el pin 6
-  digitalWrite(led2,HIGH);    // posar a 5V el pin 7
-  digitalWrite(led3, HIGH);    // posar a 5V el pin 8
-  digitalWrite(led4, HIGH);    // posar a 5V el pin 9
-  digitalWrite(led5, HIGH);    // posar a 5V el pin 10
-  digitalWrite(led6, LOW);    // posar a 5V el pin 11
+  analogWrite(led0, 0);     // posar PWM del pin 3 a 0
+  analogWrite(led1, 0);     // posar PWM del pin 5 a 0
+  analogWrite(led2, 0);     // posar PWM del pin 6 a 0
+  analogWrite(led3, 0);     // posar PWM del pin 9 a 0
+  analogWrite(led4, 0);     // posar PWM del pin 10 a 0
+  analogWrite(led5, 0);     // posar PWM del pin 11 a 0
   
-   delay(t);                  // es queden leds 500ms encesos
-  digitalWrite(led0, LOW);     // posar a 0V el pin 5
-  digitalWrite(led1, HIGH);     // posar a 0V el pin 6
-  digitalWrite(led2, HIGH);     // posar a 0V el pin 7
-  digitalWrite(led3, LOW);     // posar a 0V el pin 8
-  digitalWrite(led4, LOW);     // posar a 0V el pin 9
-  digitalWrite(led5, LOW);     // posar a 0V el pin 10
-  digitalWrite(led6, LOW);     // posar a 0V el pin 11
-   delay(t);                  // es queden leds 500ms encesos
-  digitalWrite(led0, HIGH);     // posar a 0V el pin 5
-  digitalWrite(led1, HIGH);     // posar a 0V el pin 6
-  digitalWrite(led2, LOW);     // posar a 0V el pin 7
-  digitalWrite(led3, HIGH);     // posar a 0V el pin 8
-  digitalWrite(led4, HIGH);     // posar a 0V el pin 9
-  digitalWrite(led5, LOW);     // posar a 0V el pin 10
-  digitalWrite(led6, HIGH);     // posar a 0V el pin 11
+  delay(velocitat);          // es queden leds velocitat ms en aquest estat
+
+  analogWrite(led0, 60);     // posar PWM del pin 3 a 60
+  analogWrite(led1, 60);     // posar PWM del pin 5 a 60
+  analogWrite(led2, 60);     // posar PWM del pin 6 a 60
+  analogWrite(led3, 60);     // posar PWM del pin 9 a 60
+  analogWrite(led4, 60);     // posar PWM del pin 10 a 60
+  analogWrite(led5, 60);     // posar PWM del pin 11 a 60
   
-    delay(t);                  // es queden leds 500ms encesos
-  digitalWrite(led0, HIGH);     // posar a 0V el pin 5
-  digitalWrite(led1, HIGH);     // posar a 0V el pin 6
-  digitalWrite(led2, HIGH);     // posar a 0V el pin 7
-  digitalWrite(led3, HIGH);     // posar a 0V el pin 8
-  digitalWrite(led4, LOW);     // posar a 0V el pin 9
-  digitalWrite(led5, LOW);     // posar a 0V el pin 10
-  digitalWrite(led6, HIGH);     // posar a 0V el pin 11
+  delay(velocitat);          // es queden leds velocitat ms en aquest estat
   
-   delay(t);                  // es queden leds 500ms encesos
-   digitalWrite(led0, LOW);     // posar a 0V el pin 5
-  digitalWrite(led1, HIGH);     // posar a 0V el pin 6
-  digitalWrite(led2, HIGH);     // posar a 0V el pin 7
-  digitalWrite(led3, LOW);     // posar a 0V el pin 8
-  digitalWrite(led4, LOW);     // posar a 0V el pin 9
-  digitalWrite(led5, HIGH);     // posar a 0V el pin 10
-  digitalWrite(led6, HIGH);     // posar a 0V el pin 11
+  analogWrite(led0, 125);    // posar PWM del pin 3 a 125
+  analogWrite(led1, 125);    // posar PWM del pin 5 a 125
+  analogWrite(led2, 125);    // posar PWM del pin 6 a 125
+  analogWrite(led3, 125);    // posar PWM del pin 9 a 125
+  analogWrite(led4, 125);    // posar PWM del pin 10 a 125
+  analogWrite(led5, 125);    // posar PWM del pin 11 a 125
   
-   delay(t);                  // es queden leds 500ms encesos
-   digitalWrite(led0, HIGH);     // posar a 0V el pin 5
-  digitalWrite(led1, LOW);     // posar a 0V el pin 6
-  digitalWrite(led2, HIGH);     // posar a 0V el pin 7
-  digitalWrite(led3, HIGH);     // posar a 0V el pin 8
-  digitalWrite(led4, LOW);     // posar a 0V el pin 9
-  digitalWrite(led5, HIGH);     // posar a 0V el pin 10
-  digitalWrite(led6, HIGH);     // posar a 0V el pin 11
+  delay(velocitat);           // es queden leds velocitat ms en aquest estat
   
-   delay(t);                  // es queden leds 500ms encesos
-   digitalWrite(led0, LOW);     // posar a 0V el pin 5
-  digitalWrite(led1, LOW);     // posar a 0V el pin 6
-  digitalWrite(led2, HIGH);     // posar a 0V el pin 7
-  digitalWrite(led3, HIGH);     // posar a 0V el pin 8
-  digitalWrite(led4, HIGH);     // posar a 0V el pin 9
-  digitalWrite(led5, HIGH);     // posar a 0V el pin 10
-  digitalWrite(led6, HIGH);     // posar a 0V el pin 11
+  analogWrite(led0, 255);    // posar PWM del pin 3 a 255
+  analogWrite(led1, 255);    // posar PWM del pin 5 a 255
+  analogWrite(led2, 255);    // posar PWM del pin 6 a 255
+  analogWrite(led3, 255);    // posar PWM del pin 9 a 255
+  analogWrite(led4, 255);    // posar PWM del pin 10 a 255
+  analogWrite(led5, 255);    // posar PWM del pin 11 a 255
+   
+  delay(velocitat);           // es queden leds velocitat ms en aquest estat
   
-   delay(t);                  // es queden leds 500ms encesos
-   digitalWrite(led0, HIGH);     // posar a 0V el pin 5
-  digitalWrite(led1, HIGH);     // posar a 0V el pin 6
-  digitalWrite(led2, HIGH);     // posar a 0V el pin 7
-  digitalWrite(led3, LOW);     // posar a 0V el pin 8
-  digitalWrite(led4, LOW);     // posar a 0V el pin 9
-  digitalWrite(led5, LOW);     // posar a 0V el pin 10
-  digitalWrite(led6, LOW);     // posar a 0V el pin 11
+  analogWrite(led0, 125);    // posar PWM del pin 3 a 125
+  analogWrite(led1, 125);    // posar PWM del pin 5 a 125
+  analogWrite(led2, 125);    // posar PWM del pin 6 a 125
+  analogWrite(led3, 125);    // posar PWM del pin 9 a 125
+  analogWrite(led4, 125);    // posar PWM del pin 10 a 125
+  analogWrite(led5, 125);    // posar PWM del pin 11 a 125
   
-   delay(t);                  // es queden leds 500ms encesos
-   digitalWrite(led0, HIGH);     // posar a 0V el pin 5
-  digitalWrite(led1, HIGH);     // posar a 0V el pin 6
-  digitalWrite(led2, HIGH);     // posar a 0V el pin 7
-  digitalWrite(led3, HIGH);     // posar a 0V el pin 8
-  digitalWrite(led4, HIGH);     // posar a 0V el pin 9
-  digitalWrite(led5, HIGH);     // posar a 0V el pin 10
-  digitalWrite(led6, HIGH);     // posar a 0V el pin 11
+  delay(velocitat);           // es queden leds velocitat ms en aquest estat
+
+  analogWrite(led0, 60);     // posar PWM del pin 3 a 60
+  analogWrite(led1, 60);     // posar PWM del pin 5 a 60
+  analogWrite(led2, 60);     // posar PWM del pin 6 a 60
+  analogWrite(led3, 60);     // posar PWM del pin 9 a 60
+  analogWrite(led4, 60);     // posar PWM del pin 10 a 60
+  analogWrite(led5, 60);     // posar PWM del pin 11 a 60
   
-   delay(t);                  // es queden leds 500ms encesos
-   digitalWrite(led0, HIGH);     // posar a 0V el pin 5
-  digitalWrite(led1, HIGH);     // posar a 0V el pin 6
-  digitalWrite(led2, HIGH);     // posar a 0V el pin 7
-  digitalWrite(led3, LOW);     // posar a 0V el pin 8
-  digitalWrite(led4, LOW);     // posar a 0V el pin 9
-  digitalWrite(led5, HIGH);     // posar a 0V el pin 10
-  digitalWrite(led6, HIGH);     // posar a 0V el pin 11
-  
-   delay(t);                  // es queden leds 500ms encesos
-  
+  delay(velocitat);          // es queden leds velocitat ms en aquest estat
 }
 
 //********** Funcions *************************************************************
